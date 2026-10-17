@@ -4,13 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>كم الوقت المتوقع للوصول للمستوى الذي تريده؟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@600;800&family=Archivo:wght@600;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: 'Tajawal', sans-serif;
+      font-family: 'IBM Plex Sans Arabic', Tahoma, sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(135deg, #2C3639, #3F4E4F);
-      color: #DCD7C9;
+      background: #EEF4F4;
+      color: #0A2F3A;
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -23,27 +26,31 @@
       margin: 40px auto;
       border-radius: 20px;
       padding: 40px;
-      background: rgba(44, 54, 57, 0.85);
-      backdrop-filter: blur(15px);
-      border: 1px solid rgba(162, 123, 92, 0.4);
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+      background: #FFFFFF;
+      border: 1px solid rgba(10, 47, 58, 0.13);
+      box-shadow: 0 18px 40px rgba(10, 47, 58, 0.10);
       animation: fadeUp 0.8s ease;
     }
 
     h2 {
       text-align: center;
-      color: #A27B5C;
+      font-family: 'Alexandria', Tahoma, sans-serif;
+      background: #0A2F3A;
+      color: #F1D9B3;
       font-weight: 800;
       font-size: 32px;
-      margin-bottom: 35px;
-      letter-spacing: 1px;
+      margin: -40px -40px 35px;
+      padding: 32px 40px;
+      border-radius: 19px 19px 0 0;
+      line-height: 1.5;
+      letter-spacing: 0;
     }
 
     p {
       font-size: 18px;
       font-weight: 600;
       margin-bottom: 8px;
-      color: #E8E5DF;
+      color: #0A2F3A;
     }
 
     select, input[type="number"], button, input[type="range"] {
@@ -52,23 +59,26 @@
       margin-bottom: 18px;
       border-radius: 12px;
       font-size: 18px;
-      background: #3F4E4F;
-      color: #F5F3EE;
-      border: 1px solid transparent;
+      font-family: 'Archivo', 'IBM Plex Sans Arabic', Tahoma, sans-serif;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: #0A2F3A;
+      border: 1px solid rgba(29, 107, 120, 0.75);
       transition: all 0.3s ease;
     }
 
     select:focus, input[type="number"]:focus {
       outline: none;
-      border: 1px solid #A27B5C;
-      box-shadow: 0 0 10px rgba(162, 123, 92, 0.6);
+      border: 1px solid #1D6B78;
+      box-shadow: 0 0 0 3px rgba(29, 107, 120, 0.25);
     }
 
     button {
       font-size: 22px;
-      font-weight: 700;
-      color: #2C3639;
-      background: linear-gradient(135deg, #DCD7C9, #BFB8A9);
+      font-family: 'Alexandria', Tahoma, sans-serif;
+      font-weight: 600;
+      color: #FFFFFF;
+      background: #A35E33;
       border: none;
       border-radius: 12px;
       cursor: pointer;
@@ -77,11 +87,17 @@
 
     button:hover {
       transform: translateY(-2px);
-      box-shadow: 0 8px 18px rgba(162, 123, 92, 0.5);
+      background: #8F5129;
+      box-shadow: 0 8px 18px rgba(163, 94, 51, 0.30);
+    }
+
+    button:focus-visible {
+      outline: 3px solid #1D6B78;
+      outline-offset: 3px;
     }
 
     input[type="range"] {
-      accent-color: #A27B5C;
+      accent-color: #1D6B78;
       cursor: pointer;
     }
 
@@ -89,7 +105,7 @@
       display: flex;
       justify-content: space-between;
       font-size: 16px;
-      color: #DCD7C9;
+      color: rgba(10, 47, 58, 0.72);
       font-weight: 600;
       margin-top: -5px;
     }
@@ -100,8 +116,9 @@
       font-size: 20px;
       padding: 25px;
       border-radius: 16px;
-      background: linear-gradient(135deg, #3F4E4F, #2C3639);
-      color: #F5F3EE;
+      background: #EEF4F4;
+      border: 1px solid rgba(10, 47, 58, 0.13);
+      color: #0A2F3A;
       display: none;
       animation: fadeIn 0.7s ease;
     }
@@ -197,7 +214,7 @@
         if (targetIndex <= startIndex) {
           document.getElementById("results").style.display = "block";
           document.getElementById("results").innerHTML =
-            "<span style='color: red; font-size: 22px; font-weight: 700;'>يجب أن يكون مستوى الهدف أعلى من مستوى البداية.</span>";
+            "<span style='color: #B3261E; font-size: 22px; font-weight: 700;'>يجب أن يكون مستوى الهدف أعلى من مستوى البداية.</span>";
           return;
         }
 
@@ -231,13 +248,13 @@
         // Display results
         document.getElementById("results").style.display = "block";
         document.getElementById("results").innerHTML = `
-          <div style="background: #A27B5C; border-radius: 12px; padding: 20px; color: #2C3639; font-size: 26px; font-weight: 700; margin-bottom: 20px;">
-            📚 الساعات المطلوبة: <span style="color: #FFFFFF;">${adjustedMaxGLH} ساعة</span>
+          <div style="background: #FFFFFF; border: 1px solid rgba(10, 47, 58, 0.13); box-shadow: 0 4px 14px rgba(10, 47, 58, 0.06); border-radius: 12px; padding: 20px; color: #0A2F3A; font-size: 26px; font-weight: 700; margin-bottom: 20px;">
+            📚 الساعات المطلوبة: <span style="color: #1D6B78;">${adjustedMaxGLH} ساعة</span>
           </div>
-          <div style="background: #A27B5C; border-radius: 12px; padding: 20px; color: #2C3639; font-size: 26px; font-weight: 700;">
-            🕒 الوقت المقدر: <span style="color: #FFFFFF;">${formattedTime}</span>
+          <div style="background: #FFFFFF; border: 1px solid rgba(10, 47, 58, 0.13); box-shadow: 0 4px 14px rgba(10, 47, 58, 0.06); border-radius: 12px; padding: 20px; color: #0A2F3A; font-size: 26px; font-weight: 700;">
+            🕒 الوقت المقدر: <span style="color: #1D6B78;">${formattedTime}</span>
           </div>
-          <small style="color: gray; display: block; margin-top: 20px;">هذه مجرد تقديرات وقد تختلف النتائج بناءً على ظروفك الشخصية.</small>
+          <small style="color: rgba(10, 47, 58, 0.72); display: block; margin-top: 20px;">هذه مجرد تقديرات وقد تختلف النتائج بناءً على ظروفك الشخصية.</small>
         `;
       } catch (error) {
         console.error("An error occurred:", error);
